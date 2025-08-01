@@ -9,7 +9,7 @@ data/processed/
 *.db
 *.csv
 *.json
-*.txt
+
 
 # Environments
 venv/

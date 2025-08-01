@@ -1,0 +1,7 @@
+streamlit
+requests
+numpy
+scikit-learn
+plotly
+statsmodels # Para decomposição STL
+pandas # Essencial para manipulação de dados em Python
