@@ -5,8 +5,6 @@ __pycache__/
 
 # Data
 data/raw/
-data/processed/
-*.db
 *.csv
 *.json
 
