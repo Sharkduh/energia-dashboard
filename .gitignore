@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.log
+
+# Data
+data/raw/
+data/processed/
+*.db
+*.csv
+*.json
+*.txt
+
+# Environments
+venv/
+.env
+
+# Plots
+*.png
+*.svg
