@@ -6,6 +6,7 @@ import os
 import sys
 
 # Adiciona o diretório 'src' ao PATH do Python para importar módulos
+# Note: A importação do 'EnergyModel' foi removida daqui
 sys.path.insert(0, './src')
 
 from src.data_loader import load_data
@@ -18,7 +19,6 @@ from src.analytics import (
     plot_seasonal_comparison_by_year,
     plot_time_series_decomposition
 )
-from src.models import EnergyModel
 
 # --- Configurações da Página ---
 st.set_page_config(layout="wide", page_title="Análise de Energia Cidades Globais", page_icon="💡")
@@ -29,8 +29,13 @@ def get_data():
     return load_data()
 
 # --- Função para Treinar Modelo com Cache ---
+# Esta é a seção que foi modificada
 @st.cache_resource
 def get_model(df, city_name):
+    # Move a importação para dentro da função para evitar o erro de inicialização
+    # Agora a biblioteca 'sklearn' será importada somente quando esta função for executada
+    from src.models import EnergyModel
+
     model = EnergyModel()
     df_city = df[df['Cidade'] == city_name]
     error = model.train(df_city)
