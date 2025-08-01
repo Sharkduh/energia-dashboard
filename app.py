@@ -6,7 +6,7 @@ import os
 import sys
 
 # Adiciona o diretório 'src' ao PATH do Python para importar módulos
-# Note: A importação do 'EnergyModel' foi removida daqui
+# Note: A importação do 'EnergyModel' foi removida daqui para corrigir o erro
 sys.path.insert(0, './src')
 
 from src.data_loader import load_data
@@ -29,11 +29,10 @@ def get_data():
     return load_data()
 
 # --- Função para Treinar Modelo com Cache ---
-# Esta é a seção que foi modificada
+# Esta é a seção que foi modificada para corrigir o erro de inicialização
 @st.cache_resource
 def get_model(df, city_name):
-    # Move a importação para dentro da função para evitar o erro de inicialização
-    # Agora a biblioteca 'sklearn' será importada somente quando esta função for executada
+    # A importação agora está aqui dentro da função
     from src.models import EnergyModel
 
     model = EnergyModel()
